@@ -3,6 +3,7 @@ package it.progetto.crud.model;
 import javax.persistence.*;
 
 @Entity //java annotation - contiene meta informazioni - questa classe mappa la tabella del db
+@Table(name="dipendenti")
 public class Dipendente { //classe java spring che rispecchia la tabella dipendenti del db
 
     @Id //viene visto come identificativo
