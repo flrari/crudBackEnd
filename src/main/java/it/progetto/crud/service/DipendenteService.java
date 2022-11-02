@@ -1,5 +1,6 @@
 package it.progetto.crud.service;
 
+import it.progetto.crud.exception.UserNotFoundException;
 import it.progetto.crud.model.Dipendente;
 import it.progetto.crud.repository.DipendenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class DipendenteService {
     }
 
     public Dipendente findDipendenteById(Long id){
-        return dipendenteRepository.findDipendenteById(id);
+        return dipendenteRepository.findDipendenteById(id).orElseThrow(() -> new UserNotFoundException("User by id " + id + "was not found"));
     }
 
     public void deleteDipendente(Long id){
